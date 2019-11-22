@@ -4,3 +4,4 @@ rvm:
   - 2.6
 script:
   - bundle exec rubocop
+  - bundle exec rails test
