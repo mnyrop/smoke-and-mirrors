@@ -5,6 +5,7 @@ ruby '2.6.3'
 
 # mine
 gem 'figaro'
+gem 'rainbow'
 gem 'rspec', require: false
 gem 'rubocop-rails', require: false
 gem 'whenever', require: false

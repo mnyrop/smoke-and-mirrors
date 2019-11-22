@@ -3,6 +3,10 @@ AllCops:
   TargetRubyVersion: 2.5
   Exclude: ['vendor/**/*']
 Documentation:
-    Enabled: false
+  Enabled: false
 Metrics/LineLength:
-  IgnoredPatterns: ['\A\s*#']
+  IgnoredPatterns:
+    - '\A\s*#'
+    - '\A\s*puts'
+Rails/Output:
+  Enabled: false
