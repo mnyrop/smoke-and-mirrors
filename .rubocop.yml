@@ -1,7 +1,7 @@
 require: rubocop-rails
 AllCops:
   TargetRubyVersion: 2.5
-
+  Exclude: ['vendor/**/*']
 Documentation:
     Enabled: false
 Metrics/LineLength:
