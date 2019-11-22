@@ -1,4 +1,6 @@
 require: rubocop-rails
+AllCops:
+  TargetRubyVersion: 2.5
 
 Documentation:
     Enabled: false
