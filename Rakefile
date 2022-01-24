@@ -24,6 +24,9 @@ task :smoke do
   commit_count  = (1..20).to_a.sample # number of cheap commits to make
 
   clear file
+  
+  `git config user.name "$(git log -n 1 --pretty=format:%an)"`
+  `git config user.email "$(git log -n 1 --pretty=format:%ae)"`
 
   commit_count.times do
     File.write file, "#{some_filler}\n", mode: 'a'
