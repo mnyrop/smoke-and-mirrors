@@ -2,8 +2,8 @@ on:
   push:
     branches:
       - main
-  schedule:
-    - cron:  '0 9 * *  1-5'
+#   schedule:
+#     - cron:  '0 9 * *  1-5'
 
 jobs:
   smoke-em:
