@@ -28,10 +28,8 @@ task :smoke do
   commit_count.times do
     File.write file, "#{some_filler}\n", mode: 'a'
     emoji = Faker::SlackEmoji.nature
-    `git config user.name "github-actions"`
-    `git config user.email "github-actions@github.com"`
     `git add tmp/*`
-    `git commit -m "#{emoji}"`
+    `git commit -m "#{emoji} [skip ci]"`
     puts "Committing #{emoji}"
   end
   `git push`
