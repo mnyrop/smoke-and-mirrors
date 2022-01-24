@@ -1,8 +1,35 @@
-# frozen_string_literal: true
+require 'faker'
+require 'fileutils'
 
-# Add your own tasks in files placed in lib/tasks ending in .rake,
-# e.g., lib/tasks/capistrano.rake will automatically be available to Rake.
+def some_filler
+  person        = Faker::Music::RockBand.name
+  possessive    = person.end_with?('s') ? "'" : "'s"
+  pet           = Faker::Creature::Animal.name
+  verb          = ['loves', 'hates'].sample
+  treat         = [Faker::Food.ingredient, Faker::Food.dish].sample.downcase
 
-require_relative 'config/application'
+  "#{person}#{possessive} pet #{pet} #{verb} #{treat}."
+end
 
-Rails.application.load_tasks
+def clear(file)
+  FileUtils.rm file, :force => true
+  FileUtils.touch file
+end
+
+
+desc 'add changes for cheaty commits'
+task :smoke do
+  outfiles      = ['./tmp/mirror.txt', './tmp/smoke.txt']
+  file          = outfiles.sample # file to write cheap commits to
+  commit_count  = (1..20).to_a.sample # number of cheap commits to make
+
+  clear file
+
+  commit_count.times do
+    File.write file, "#{some_filler}\n", mode: 'a'
+    # `git add tmp/*`
+    # `git commit - m "#{Faker::SlackEmoji.emoji}"`
+  end
+end
+
+task :default => [:smoke]

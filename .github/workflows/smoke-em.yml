@@ -1,0 +1,15 @@
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron:  '0 9 * *  1-5'
+
+jobs:
+  smoke-em:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+      - name: commit crimes
+        run: bundle exec rake
