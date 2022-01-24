@@ -1,6 +1,10 @@
 require 'faker'
 require 'fileutils'
 
+def on_gha
+  ENV['CI'].to_s.downcase == 'true' ? true : false
+end
+
 def some_filler
   person        = Faker::Music::RockBand.name
   possessive    = person.end_with?('s') ? "'" : "'s"
@@ -20,20 +24,23 @@ end
 desc 'add changes for cheaty commits'
 task :smoke do
   outfiles      = ['./tmp/mirror.txt', './tmp/smoke.txt']
+  emojis        = ['🌳', '🔋', '📟', '🎾', '🍀', '💚', '🐊', '🕒']
   file          = outfiles.sample # file to write cheap commits to
   commit_count  = (1..20).to_a.sample # number of cheap commits to make
 
   clear file
-  
-  `git config user.name "$(git log -n 1 --pretty=format:%an)"`
-  `git config user.email "$(git log -n 1 --pretty=format:%ae)"`
+
+  if on_gha
+    `git config user.name "$(git log -n 1 --pretty=format:%an)"`
+    `git config user.email "$(git log -n 1 --pretty=format:%ae)"`
+  end
 
   commit_count.times do
     File.write file, "#{some_filler}\n", mode: 'a'
-    emoji = Faker::SlackEmoji.nature
+    emoji = emojis.sample
     `git add tmp/*`
     `git commit -m "#{emoji} [skip ci]"`
-    puts "Committing #{emoji}"
+    puts "Committing -m #{emoji} [skip ci]"
   end
   `git push`
 end

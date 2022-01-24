@@ -2,17 +2,14 @@ on:
   push:
     branches:
       - main
-#   schedule:
-#     - cron:  '0 9 * *  1-5'
-
+  schedule:
+    - cron:  '0 9 * *  1-5'
 jobs:
   smoke-em:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v2
-        # with:
-        #   token: ${{ secrets.PAT }}
       - name: setup ruby
         uses: ruby/setup-ruby@v1
       - name: bundle
