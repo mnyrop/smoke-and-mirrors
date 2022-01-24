@@ -27,9 +27,12 @@ task :smoke do
 
   commit_count.times do
     File.write file, "#{some_filler}\n", mode: 'a'
-    # `git add tmp/*`
-    # `git commit - m "#{Faker::SlackEmoji.emoji}"`
+    emoji = Faker::SlackEmoji.nature
+    `git add tmp/*`
+    `git commit -m "#{emoji}"`
+    puts "Committing #{emoji}"
   end
+  `git push`
 end
 
 task :default => [:smoke]
