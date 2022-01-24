@@ -9,9 +9,11 @@ jobs:
   smoke-em:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: ruby/setup-ruby@v1
-      - name: bundle 
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: setup ruby
+        uses: ruby/setup-ruby@v1
+      - name: bundle
         run: bundle install
-      - name: commit crimes
+      - name: git commit crimes
         run: bundle exec rake
