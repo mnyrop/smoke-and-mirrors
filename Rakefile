@@ -26,7 +26,7 @@ task :smoke do
   outfiles      = ['./tmp/mirror.txt', './tmp/smoke.txt']
   emojis        = ['🌳', '🔋', '📟', '🎾', '🍀', '💚', '🐊', '🕒']
   file          = outfiles.sample # file to write cheap commits to
-  commit_count  = (1..20).to_a.sample # number of cheap commits to make
+  commit_count  = (0..20).to_a.sample # number of cheap commits to make
 
   clear file
 
