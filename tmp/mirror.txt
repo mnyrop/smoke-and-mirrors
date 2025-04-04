@@ -1,16 +1,1 @@
-The Carpenters' pet reindeer loves poutine.
-Led Zeppelin's pet mallard hates allspice.
-U2's pet marten hates rye.
-Living Colour's pet fish loves brussels sprouts.
-Orbital's pet tortoise loves cacao.
-Alice In Chains' pet louse hates gula melaka.
-Little Feat's pet fly loves salmon nigiri.
-Genesis' pet crab loves milk.
-AC/DC's pet leopard loves fenugreek.
-Motorhead's pet dolphin hates curry leaves.
-Bon Jovi's pet llama hates chilli con carne.
-Journey's pet antelope loves risotto with seafood.
-The Band's pet snail hates almonds.
-Black Sabbath's pet goose loves ricotta stuffed ravioli.
-The Talking Heads' pet baboon hates pierogi.
-Rush's pet porpoise hates katsu curry.
+R.E.M.'s pet buffalo loves katsu curry.
